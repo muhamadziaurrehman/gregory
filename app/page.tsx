@@ -556,7 +556,7 @@ export default function Home() {
               </div>
               <div className="flex items-center justify-center">
                 <Image
-                  src="/placeholder.svg?height=400&width=600"
+                  src="/images/image.png?height=400&width=600"
                   width={600}
                   height={400}
                   alt="About Us Image"
