@@ -70,7 +70,7 @@ export default function Home() {
                 </div>
               </div>
               <Image
-                src="/placeholder.svg?height=550&width=550"
+                src="/images/twomen.png?height=550&width=550"
                 width={550}
                 height={550}
                 alt="Hero Image"
