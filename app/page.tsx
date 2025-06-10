@@ -38,12 +38,7 @@ export default function Home() {
               Contact
             </Link>
           </nav>
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" size="sm" className="hidden md:flex">
-              Log in
-            </Button>
-            <Button size="sm">Get Started</Button>
-          </div>
+          
         </div>
       </header>
       <main className="flex-1">
