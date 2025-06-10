@@ -19,7 +19,11 @@ export default function Home() {
     const message = formData.get('message') as string
     if (!firstName || !lastName || !email || !message) return
     // Insert the comment from the form into the Postgres database
-    await sql('INSERT INTO queries (first_name, last_name, email, message) VALUES ($1, $2, $3, $4)', [firstName, lastName, email, message]);
+    // await sql('INSERT INTO queries (first_name, last_name, email, message) VALUES ($1, $2, $3, $4)', [firstName, lastName, email, message]);
+    await sql`
+      INSERT INTO queries (first_name, last_name, email, message)
+      VALUES (${firstName}, ${lastName}, ${email}, ${message})
+    `
   }
   return (
     <div className="flex min-h-[100dvh] flex-col">
