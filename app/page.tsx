@@ -4,8 +4,23 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { ArrowRight, CheckCircle, MessageSquare, BarChart3, Zap, Mail, Shield, FileCheck, Award } from "lucide-react"
+// import { saveMessage } from "@/app/actions/saveMessage"
+import { neon } from '@neondatabase/serverless';
 
 export default function Home() {
+  async function saveMessage(formData: FormData) {
+    'use server';
+    // Connect to the Neon database
+    const sql = neon(`${process.env.DATABASE_URL}`);
+    // const comment = formData.get('comment');
+    const firstName = formData.get('first_name') as string
+    const lastName = formData.get('last_name') as string
+    const email = formData.get('email') as string
+    const message = formData.get('message') as string
+    if (!firstName || !lastName || !email || !message) return
+    // Insert the comment from the form into the Postgres database
+    await sql('INSERT INTO queries (first_name, last_name, email, message) VALUES ($1, $2, $3, $4)', [firstName, lastName, email, message]);
+  }
   return (
     <div className="flex min-h-[100dvh] flex-col">
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -606,7 +621,7 @@ export default function Home() {
                     variant="outline"
                     size="sm"
                     as="a"
-                    href="mailto:Contact@cbmgmtgroup.com?subject=Attention: Gregory C Barnez II"
+                    onclick="location.href='mailto:info@cb-management-group.com?subject=Attention: Gregory C Barnez II'"
                   >
                     <Mail className="h-4 w-4 mr-2" />
                     Contact Gregory
@@ -635,7 +650,7 @@ export default function Home() {
               <div className="flex flex-col space-y-4">
                 <div className="flex items-center gap-2">
                   <Mail className="h-5 w-5 text-primary" />
-                  <p>Contact@cbmgmtgroup.com</p>
+                  <p>info@cb-management-group.com</p>
                 </div>
                 <div className="flex items-center gap-2">
                   <MessageSquare className="h-5 w-5 text-primary" />
@@ -649,7 +664,29 @@ export default function Home() {
               </div>
               <div className="flex flex-col space-y-4">
                 <div className="grid gap-4">
-                  <div className="grid grid-cols-2 gap-4">
+                  <form action={saveMessage}>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <label htmlFor="first-name">First name</label>
+                        <Input id="first-name" name="first_name" placeholder="John" required />
+                      </div>
+                      <div className="space-y-2">
+                        <label htmlFor="last-name">Last name</label>
+                        <Input id="last-name" name="last_name" placeholder="Doe" required />
+                      </div>
+                    </div>
+                    <div className="space-y-2">
+                      <label htmlFor="email">Email</label>
+                      <Input id="email" name="email" type="email" placeholder="you@example.com" required />
+                    </div>
+                    <div className="space-y-2">
+                      <label htmlFor="message">Message</label>
+                      <Textarea id="message" name="message" className="min-h-[150px]" placeholder="Your message here..." required />
+                    </div>
+                    <Button size="lg" className="w-full" type="submit">Send Message</Button>
+                  </form>
+
+                  {/* <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <label
                         htmlFor="first-name"
@@ -689,7 +726,7 @@ export default function Home() {
                   </div>
                   <Button size="lg" className="w-full">
                     Send Message
-                  </Button>
+                  </Button> */}
                 </div>
               </div>
             </div>
