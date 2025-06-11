@@ -49,6 +49,13 @@ export default function Home() {
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-2 font-bold text-xl ml-[25px]">
+            <Image
+              src="/images/cb-logo.png"
+              width={40}
+              height={40}
+              alt="C&B Management Group LLP Logo"
+              className="object-contain"
+            />
             <span className="text-primary">C&B</span>
             <span>Management Group LLP</span>
           </div>
