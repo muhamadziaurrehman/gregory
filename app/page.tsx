@@ -406,37 +406,41 @@ export default function Home() {
                     "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10",
                 },
               ].map((product, index) => (
-                <AnimatedSection key={index} animation="slide-up" delay={index * 100}>
-                  <div className="group relative overflow-hidden rounded-lg border bg-background p-6 shadow-sm transition-all duration-500 hover:shadow-xl hover:scale-105 hover:-translate-y-2">
-                    <div
-                      className={`flex h-12 w-12 items-center justify-center rounded-lg bg-${product.color}-100 text-${product.color}-600 mb-4 group-hover:scale-110 transition-transform duration-300`}
-                    >
-                      <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={product.iconPath} />
-                      </svg>
+                <div key={index} className="group relative h-full">
+                  <AnimatedSection animation="slide-up" delay={index * 100} className="h-full">
+                    <div className="group relative overflow-hidden rounded-lg border bg-background p-6 shadow-sm transition-all duration-500 hover:shadow-xl hover:scale-105 hover:-translate-y-2 h-full flex flex-col">
+                      <div
+                        className={`flex h-12 w-12 items-center justify-center rounded-lg bg-${product.color}-100 text-${product.color}-600 mb-4 group-hover:scale-110 transition-transform duration-300`}
+                      >
+                        <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={product.iconPath} />
+                        </svg>
+                      </div>
+                      <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">
+                        {product.title}
+                      </h3>
+                      <p className="text-muted-foreground mb-4">{product.description}</p>
+                      <div className="space-y-2 text-sm">
+                        {product.items.map((item, itemIndex) => (
+                          <div key={itemIndex} className="flex items-center gap-2">
+                            <CheckCircle className="h-4 w-4 text-green-600" />
+                            <span>{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="mt-auto pt-4">
+                        <Button
+                          className="w-full hover:scale-105 transition-all duration-300 group-hover:shadow-lg"
+                          variant="outline"
+                        >
+                          <a href={`mailto:info@cb-management-group.com?subject=Learn More: ${product.subject}`}>
+                            Learn More
+                          </a>
+                        </Button>
+                      </div>
                     </div>
-                    <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">
-                      {product.title}
-                    </h3>
-                    <p className="text-muted-foreground mb-4">{product.description}</p>
-                    <div className="space-y-2 text-sm">
-                      {product.items.map((item, itemIndex) => (
-                        <div key={itemIndex} className="flex items-center gap-2">
-                          <CheckCircle className="h-4 w-4 text-green-600" />
-                          <span>{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                    <Button
-                      className="w-full mt-4 hover:scale-105 transition-all duration-300 group-hover:shadow-lg"
-                      variant="outline"
-                    >
-                      <a href={`mailto:info@cb-management-group.com?subject=Learn More: ${product.subject}`}>
-                        Learn More
-                      </a>
-                    </Button>
-                  </div>
-                </AnimatedSection>
+                  </AnimatedSection>
+                </div>
               ))}
             </div>
 
@@ -469,41 +473,45 @@ export default function Home() {
             </AnimatedSection>
 
             <div className="mx-auto grid max-w-5xl gap-6 py-12 lg:grid-cols-2 lg:gap-12">
-              <AnimatedSection animation="slide-right" delay={200}>
-                <div className="flex flex-col justify-between rounded-lg border p-6 shadow-sm hover:scale-105 hover:shadow-lg transition-all duration-300">
-                  <div className="space-y-4">
-                    <p className="text-muted-foreground">
-                      "This platform has completely transformed our business operations. We've seen a 30% increase in
-                      productivity since implementing it."
-                    </p>
-                  </div>
-                  <div className="flex items-center space-x-4 pt-4">
-                    <div className="rounded-full bg-muted h-10 w-10" />
-                    <div>
-                      <p className="text-sm font-medium">Sarah Johnson</p>
-                      <p className="text-sm text-muted-foreground">CEO, TechCorp</p>
+              <div className="h-full">
+                <AnimatedSection animation="slide-right" delay={200} className="h-full">
+                  <div className="flex flex-col justify-between rounded-lg border p-6 shadow-sm hover:scale-105 hover:shadow-lg transition-all duration-300 h-full">
+                    <div className="space-y-4">
+                      <p className="text-muted-foreground">
+                        "This platform has completely transformed our business operations. We've seen a 30% increase in
+                        productivity since implementing it."
+                      </p>
+                    </div>
+                    <div className="flex items-center space-x-4 pt-4 mt-auto">
+                      <div className="rounded-full bg-muted h-10 w-10" />
+                      <div>
+                        <p className="text-sm font-medium">Sarah Johnson</p>
+                        <p className="text-sm text-muted-foreground">CEO, TechCorp</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </AnimatedSection>
+                </AnimatedSection>
+              </div>
 
-              <AnimatedSection animation="slide-left" delay={400}>
-                <div className="flex flex-col justify-between rounded-lg border p-6 shadow-sm hover:scale-105 hover:shadow-lg transition-all duration-300">
-                  <div className="space-y-4">
-                    <p className="text-muted-foreground">
-                      "The analytics features have provided us with invaluable insights that have helped us make better
-                      business decisions."
-                    </p>
-                  </div>
-                  <div className="flex items-center space-x-4 pt-4">
-                    <div className="rounded-full bg-muted h-10 w-10" />
-                    <div>
-                      <p className="text-sm font-medium">Michael Chen</p>
-                      <p className="text-sm text-muted-foreground">CTO, DataDrive</p>
+              <div className="h-full">
+                <AnimatedSection animation="slide-left" delay={400} className="h-full">
+                  <div className="flex flex-col justify-between rounded-lg border p-6 shadow-sm hover:scale-105 hover:shadow-lg transition-all duration-300 h-full">
+                    <div className="space-y-4">
+                      <p className="text-muted-foreground">
+                        "The analytics features have provided us with invaluable insights that have helped us make
+                        better business decisions."
+                      </p>
+                    </div>
+                    <div className="flex items-center space-x-4 pt-4 mt-auto">
+                      <div className="rounded-full bg-muted h-10 w-10" />
+                      <div>
+                        <p className="text-sm font-medium">Michael Chen</p>
+                        <p className="text-sm text-muted-foreground">CTO, DataDrive</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </AnimatedSection>
+                </AnimatedSection>
+              </div>
             </div>
           </div>
         </section>
