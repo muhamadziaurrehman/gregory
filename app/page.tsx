@@ -666,11 +666,11 @@ export default function Home() {
                         <Input id="last-name" name="last_name" placeholder="Doe" required />
                       </div>
                     </div>
-                    <div className="space-y-2">
+                    <div className="space-y-2 mt-[3px]">
                       <label htmlFor="email">Email</label>
                       <Input id="email" name="email" type="email" placeholder="you@example.com" required />
                     </div>
-                    <div className="space-y-2">
+                    <div className="space-y-2 mt-[3px]">
                       <label htmlFor="message">Message</label>
                       <Textarea
                         id="message"
@@ -691,7 +691,7 @@ export default function Home() {
         </section>
       </main>
       <footer className="w-full border-t py-6 md:py-0">
-        <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row ml-[25px]">
+        <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row pl-[25px]">
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} C&B Management Group LLP. All rights reserved.
           </p>
