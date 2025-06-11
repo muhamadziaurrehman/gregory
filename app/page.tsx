@@ -1,3 +1,6 @@
+"use client"
+
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -7,9 +10,42 @@ import { ArrowRight, CheckCircle, MessageSquare, BarChart3, Zap, Mail, Shield, F
 import { saveMessage } from "./actions"
 
 export default function Home() {
+  const [showSuccess, setShowSuccess] = useState(false)
+
+  useEffect(() => {
+    if (showSuccess) {
+      const timer = setTimeout(() => {
+        setShowSuccess(false)
+      }, 5000)
+      return () => clearTimeout(timer)
+    }
+  }, [showSuccess])
+
+  async function handleSubmit(formData: FormData) {
+    await saveMessage(formData)
+    setShowSuccess(true)
+  }
+
   return (
-    
     <div className="flex min-h-[100dvh] flex-col">
+      {showSuccess && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+          <div className="bg-white rounded-lg p-6 shadow-lg max-w-md mx-4 animate-in fade-in-0 zoom-in-95">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-green-100">
+                <CheckCircle className="h-6 w-6 text-green-600" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-lg">Message Sent!</h3>
+                <p className="text-sm text-muted-foreground">We'll get back to you soon.</p>
+              </div>
+            </div>
+            <Button onClick={() => setShowSuccess(false)} className="w-full">
+              Close
+            </Button>
+          </div>
+        </div>
+      )}
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-2 font-bold text-xl ml-[25px]">
@@ -39,7 +75,6 @@ export default function Home() {
               Contact
             </Link>
           </nav>
-          
         </div>
       </header>
       <main className="flex-1">
@@ -285,9 +320,7 @@ export default function Home() {
                   </div>
                 </div>
                 <Button className="w-full mt-4" variant="outline">
-                  <a href="mailto:info@cb-management-group.com?subject=Learn More: Diagnostic Equipment">
-                    Learn More
-                  </a>
+                  <a href="mailto:info@cb-management-group.com?subject=Learn More: Diagnostic Equipment">Learn More</a>
                 </Button>
               </div>
 
@@ -322,9 +355,7 @@ export default function Home() {
                   </div>
                 </div>
                 <Button className="w-full mt-4" variant="outline">
-                  <a href="mailto:info@cb-management-group.com?subject=Learn More: Patient Monitoring">
-                    Learn More
-                  </a>
+                  <a href="mailto:info@cb-management-group.com?subject=Learn More: Patient Monitoring">Learn More</a>
                 </Button>
               </div>
 
@@ -359,9 +390,7 @@ export default function Home() {
                   </div>
                 </div>
                 <Button className="w-full mt-4" variant="outline">
-                  <a href="mailto:info@cb-management-group.com?subject=Learn More: Laboratory Equipment">
-                    Learn More
-                  </a>
+                  <a href="mailto:info@cb-management-group.com?subject=Learn More: Laboratory Equipment">Learn More</a>
                 </Button>
               </div>
 
@@ -396,9 +425,7 @@ export default function Home() {
                   </div>
                 </div>
                 <Button className="w-full mt-4" variant="outline">
-                  <a href="mailto:info@cb-management-group.com?subject=Learn More: Surgical Instruments">
-                    Learn More
-                  </a>
+                  <a href="mailto:info@cb-management-group.com?subject=Learn More: Surgical Instruments">Learn More</a>
                 </Button>
               </div>
 
@@ -433,9 +460,7 @@ export default function Home() {
                   </div>
                 </div>
                 <Button className="w-full mt-4" variant="outline">
-                 <a href="mailto:info@cb-management-group.com?subject=Learn More: Safety & PPE">
-                    Learn More
-                  </a>
+                  <a href="mailto:info@cb-management-group.com?subject=Learn More: Safety & PPE">Learn More</a>
                 </Button>
               </div>
 
@@ -470,9 +495,7 @@ export default function Home() {
                   </div>
                 </div>
                 <Button className="w-full mt-4" variant="outline">
-                  <a href="mailto:info@cb-management-group.com?subject=Learn More: Medical Supplies">
-                    Learn More
-                  </a>
+                  <a href="mailto:info@cb-management-group.com?subject=Learn More: Medical Supplies">Learn More</a>
                 </Button>
               </div>
             </div>
@@ -655,7 +678,7 @@ export default function Home() {
               </div>
               <div className="flex flex-col space-y-4">
                 <div className="grid gap-4">
-                  <form action={saveMessage}>
+                  <form action={handleSubmit}>
                     <div className="grid grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <label htmlFor="first-name">First name</label>
