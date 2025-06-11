@@ -286,7 +286,6 @@ export default function Home() {
                 </div>
                 <Button className="w-full mt-4" variant="outline">
                   <a href="mailto:info@cb-management-group.com?subject=Learn More: Diagnostic Equipment">
-                      <Mail className="h-4 w-4 mr-2" />
                     Learn More
                   </a>
                 </Button>
@@ -324,7 +323,6 @@ export default function Home() {
                 </div>
                 <Button className="w-full mt-4" variant="outline">
                   <a href="mailto:info@cb-management-group.com?subject=Learn More: Patient Monitoring">
-                      <Mail className="h-4 w-4 mr-2" />
                     Learn More
                   </a>
                 </Button>
@@ -362,7 +360,6 @@ export default function Home() {
                 </div>
                 <Button className="w-full mt-4" variant="outline">
                   <a href="mailto:info@cb-management-group.com?subject=Learn More: Laboratory Equipment">
-                      <Mail className="h-4 w-4 mr-2" />
                     Learn More
                   </a>
                 </Button>
@@ -400,7 +397,6 @@ export default function Home() {
                 </div>
                 <Button className="w-full mt-4" variant="outline">
                   <a href="mailto:info@cb-management-group.com?subject=Learn More: Surgical Instruments">
-                      <Mail className="h-4 w-4 mr-2" />
                     Learn More
                   </a>
                 </Button>
@@ -438,7 +434,6 @@ export default function Home() {
                 </div>
                 <Button className="w-full mt-4" variant="outline">
                  <a href="mailto:info@cb-management-group.com?subject=Learn More: Safety & PPE">
-                      <Mail className="h-4 w-4 mr-2" />
                     Learn More
                   </a>
                 </Button>
@@ -476,7 +471,6 @@ export default function Home() {
                 </div>
                 <Button className="w-full mt-4" variant="outline">
                   <a href="mailto:info@cb-management-group.com?subject=Learn More: Medical Supplies">
-                      <Mail className="h-4 w-4 mr-2" />
                     Learn More
                   </a>
                 </Button>
