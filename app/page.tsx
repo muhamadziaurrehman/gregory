@@ -12,7 +12,7 @@ export default function Home() {
     <div className="flex min-h-[100dvh] flex-col">
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center gap-2 font-bold text-xl">
+          <div className="flex items-center gap-2 font-bold text-xl ml-[25px]">
             <span className="text-primary">C&B</span>
             <span>Management Group LLP</span>
           </div>
@@ -57,7 +57,7 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Button size="lg">
+                  <Button size="lg" href="#features">
                     Get Started
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
@@ -285,7 +285,10 @@ export default function Home() {
                   </div>
                 </div>
                 <Button className="w-full mt-4" variant="outline">
-                  Learn More
+                  <a href="mailto:info@cb-management-group.com?subject=Learn More: Diagnostic Equipment">
+                      <Mail className="h-4 w-4 mr-2" />
+                    Learn More
+                  </a>
                 </Button>
               </div>
 
@@ -320,7 +323,10 @@ export default function Home() {
                   </div>
                 </div>
                 <Button className="w-full mt-4" variant="outline">
-                  Learn More
+                  <a href="mailto:info@cb-management-group.com?subject=Learn More: Patient Monitoring">
+                      <Mail className="h-4 w-4 mr-2" />
+                    Learn More
+                  </a>
                 </Button>
               </div>
 
@@ -355,7 +361,10 @@ export default function Home() {
                   </div>
                 </div>
                 <Button className="w-full mt-4" variant="outline">
-                  Learn More
+                  <a href="mailto:info@cb-management-group.com?subject=Learn More: Laboratory Equipment">
+                      <Mail className="h-4 w-4 mr-2" />
+                    Learn More
+                  </a>
                 </Button>
               </div>
 
@@ -390,7 +399,10 @@ export default function Home() {
                   </div>
                 </div>
                 <Button className="w-full mt-4" variant="outline">
-                  Learn More
+                  <a href="mailto:info@cb-management-group.com?subject=Learn More: Surgical Instruments">
+                      <Mail className="h-4 w-4 mr-2" />
+                    Learn More
+                  </a>
                 </Button>
               </div>
 
@@ -425,7 +437,10 @@ export default function Home() {
                   </div>
                 </div>
                 <Button className="w-full mt-4" variant="outline">
-                  Learn More
+                 <a href="mailto:info@cb-management-group.com?subject=Learn More: Safety & PPE">
+                      <Mail className="h-4 w-4 mr-2" />
+                    Learn More
+                  </a>
                 </Button>
               </div>
 
@@ -460,7 +475,10 @@ export default function Home() {
                   </div>
                 </div>
                 <Button className="w-full mt-4" variant="outline">
-                  Learn More
+                  <a href="mailto:info@cb-management-group.com?subject=Learn More: Medical Supplies">
+                      <Mail className="h-4 w-4 mr-2" />
+                    Learn More
+                  </a>
                 </Button>
               </div>
             </div>
@@ -668,7 +686,7 @@ export default function Home() {
                         required
                       />
                     </div>
-                    <Button size="lg" className="w-full" type="submit">
+                    <Button size="lg" className="w-full mt-[5px]" type="submit">
                       Send Message
                     </Button>
                   </form>
@@ -679,7 +697,7 @@ export default function Home() {
         </section>
       </main>
       <footer className="w-full border-t py-6 md:py-0">
-        <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
+        <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row ml-[25px]">
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} C&B Management Group LLP. All rights reserved.
           </p>
